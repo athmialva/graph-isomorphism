@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="An educational tool for learning the basics of graph isomorphism.">
+	<title>Graph Isomorphism Checker | DMS Project</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header class="site-header">
+		<nav class="navbar container" aria-label="Main navigation">
+			<a class="brand" href="#home" data-section-target="home" aria-label="Graph Isomorphism home">
+				<span class="brand-mark" aria-hidden="true">G</span>
+				<span>Graph<br><strong>Isomorphism</strong></span>
+			</a>
+
+			<div class="nav-links">
+				<a href="#home" data-section-target="home">Home</a>
+				<a href="#definitions" data-section-target="definitions">Definitions</a>
+				<a href="#examples" data-section-target="examples">Examples</a>
+				<a href="#activity" data-section-target="activity">Experiment</a>
+				<a href="#tool" data-section-target="tool">Interactive Tool</a>
+				<a href="#exercises" data-section-target="exercises">Exercises</a>
+			</div>
+		</nav>
+	</header>
+
+	<main id="top">
+		<section class="hero container" id="home" aria-labelledby="page-title">
+			<div class="hero-copy">
+				<p class="eyebrow"><span class="eyebrow-dot"></span>Discrete Mathematical Structures</p>
+				<h1 id="page-title">Graph <span>Isomorphism</span></h1>
+				<p class="hero-subtitle">Explore. Understand. Solve.</p>
+				<p class="intro">
+					Build a clear intuition for graph isomorphism through friendly definitions,
+					visual examples, guided activities, an interactive checker, and practice quizzes.
+				</p>
+				<a class="primary-button hero-cta" href="#definitions" data-section-target="definitions">Start Learning <span aria-hidden="true">↗</span></a>
+				<div class="hero-meta"><span class="meta-line"></span>Learn by seeing the structure</div>
+			</div>
+
+			<div class="hero-visual" aria-label="Two differently labelled graphs connected by a mapping" role="img">
+				<div class="visual-heading">Same structure,<br><strong>new perspective.</strong></div>
+				<div class="graph-cluster graph-cluster-left">
+					<span class="cluster-label">Graph G</span>
+					<span class="cluster-edge edge-a"></span><span class="cluster-edge edge-b"></span><span class="cluster-edge edge-c"></span><span class="cluster-edge edge-d"></span>
+					<span class="cluster-node cn-a">A</span><span class="cluster-node cn-b">B</span><span class="cluster-node cn-c">C</span><span class="cluster-node cn-d">D</span>
+				</div>
+				<div class="mapping-arrow"><span>mapping</span><i>→</i></div>
+				<div class="graph-cluster graph-cluster-right">
+					<span class="cluster-label">Graph H</span>
+					<span class="cluster-edge edge-a"></span><span class="cluster-edge edge-b"></span><span class="cluster-edge edge-c"></span><span class="cluster-edge edge-d"></span>
+					<span class="cluster-node cn-a">1</span><span class="cluster-node cn-b">2</span><span class="cluster-node cn-c">3</span><span class="cluster-node cn-d">4</span>
+				</div>
+				<span class="visual-note">different labels · identical connections</span>
+			</div>
+		</section>
+
+		<section class="section-band section-panel active" id="definitions" aria-labelledby="definitions-title">
+			<div class="container section-grid">
+				<div class="section-number">01</div>
+				<div>
+					<p class="section-kicker">Build the foundation</p>
+					<h2 id="definitions-title">Graph Isomorphism</h2>
+					<p class="section-description">Learn what it means, how to check it, and why the answer is correct.</p>
+				</div>
+				<div class="section-placeholder">Same shape<br><span>Different names</span></div>
+			</div>
+			<div class="container isomorphism-lesson">
+				<article class="lesson-card lesson-definition">
+					<span class="card-label">01 · The idea</span>
+					<h3>What is Graph Isomorphism?</h3>
+					<p>Two graphs are <strong>isomorphic</strong> when they have the same connections, even if their drawings or vertex names look different.</p>
+					<p class="lesson-callout">Think of it as renaming the vertices without changing the shape.</p>
+					<p class="structure-note"><strong>Same structure</strong> means the same pairs are connected. Names, positions, and even the way we draw the graph can change.</p>
+				</article>
+
+				<div class="lesson-check-stack">
+					<article class="lesson-card lesson-steps">
+						<span class="card-label">02 · The check</span>
+						<h3>How do we find it?</h3>
+						<ol class="check-steps">
+							<li><span>1</span>Check that both graphs have the same number of vertices.</li>
+							<li><span>2</span>Check that both graphs have the same number of edges.</li>
+							<li><span>3</span>Compare vertex degrees: count how many edges touch each vertex.</li>
+							<li><span>4</span>Match vertices while keeping every connection the same.</li>
+						</ol>
+						<p class="result-line">These checks narrow it down; a valid matching that preserves every connection confirms the graphs are isomorphic.</p>
+					</article>
+
+					<article class="basic-terms-card">
+						<h3>Basic Graph Terms</h3>
+						<p><strong>Vertex:</strong> A vertex is a point or node in a graph.</p>
+						<p><strong>Edge:</strong> An edge is a line that connects two vertices.</p>
+						<p><strong>Degree of a Vertex:</strong> The degree of a vertex is the number of edges connected to that vertex.</p>
+						<p><strong>Example:</strong> If 3 edges are connected to A1, then <strong>Degree(A1) = 3</strong>.</p>
+					</article>
+				</div>
+
+				<article class="lesson-card lesson-example">
+					<div class="lesson-card-heading"><span class="card-label">03 · Easy example</span><span class="answer-badge">Isomorphic</span></div>
+					<h3>Same connections, new names</h3>
+					<div class="mini-graph-pair">
+						<div class="mini-graph-wrap"><span class="mini-graph-label">Graph G</span><svg class="mini-graph" viewBox="0 0 160 130" role="img" aria-label="Graph G with vertices A, B, and C connected in a triangle"><line x1="45" y1="35" x2="115" y2="35"/><line x1="115" y1="35" x2="80" y2="100"/><line x1="80" y1="100" x2="45" y2="35"/><circle cx="45" cy="35" r="15"/><circle cx="115" cy="35" r="15"/><circle cx="80" cy="100" r="15"/><text x="45" y="40">A</text><text x="115" y="40">B</text><text x="80" y="105">C</text></svg></div>
+						<div class="mapping-list"><span>matching</span><strong>A → X</strong><strong>B → Y</strong><strong>C → Z</strong></div>
+						<div class="mini-graph-wrap"><span class="mini-graph-label">Graph H</span><svg class="mini-graph mini-graph-alt" viewBox="0 0 160 130" role="img" aria-label="Graph H with vertices X, Y, and Z connected in a triangle"><line x1="45" y1="35" x2="115" y2="35"/><line x1="115" y1="35" x2="80" y2="100"/><line x1="80" y1="100" x2="45" y2="35"/><circle cx="45" cy="35" r="15"/><circle cx="115" cy="35" r="15"/><circle cx="80" cy="100" r="15"/><text x="45" y="40">X</text><text x="115" y="40">Y</text><text x="80" y="105">Z</text></svg></div>
+					</div>
+					<p class="result-line"><strong>Result:</strong> Both graphs have 3 vertices, 3 edges, and the same degree pattern. The mapping keeps every connection, so they are isomorphic.</p>
+				</article>
+
+				<article class="lesson-card lesson-not-example">
+					<div class="lesson-card-heading"><span class="card-label">04 · Compare</span><span class="answer-badge answer-badge-no">Not isomorphic</span></div>
+					<h3>A quick non-example</h3>
+					<div class="non-example-row"><svg class="mini-graph" viewBox="0 0 180 100" role="img" aria-label="Triangle graph"><line x1="35" y1="25" x2="145" y2="25"/><line x1="145" y1="25" x2="90" y2="82"/><line x1="90" y1="82" x2="35" y2="25"/><circle cx="35" cy="25" r="14"/><circle cx="145" cy="25" r="14"/><circle cx="90" cy="82" r="14"/><text x="35" y="30">A</text><text x="145" y="30">B</text><text x="90" y="87">C</text></svg><span class="not-equal">≠</span><svg class="mini-graph mini-graph-alt" viewBox="0 0 180 100" role="img" aria-label="Path graph"><line x1="35" y1="50" x2="90" y2="50"/><line x1="90" y1="50" x2="145" y2="50"/><circle cx="35" cy="50" r="14"/><circle cx="90" cy="50" r="14"/><circle cx="145" cy="50" r="14"/><text x="35" y="55">X</text><text x="90" y="55">Y</text><text x="145" y="55">Z</text></svg></div>
+					<p class="result-line"><strong>Why not?</strong> The triangle gives every vertex degree 2, but the path has end vertices of degree 1, so the connections cannot match.</p>
+				</article>
+
+				<aside class="remember-box"><strong>Note:</strong> Isomorphic graphs may look different, but their connections are the same.</aside>
+			</div>
+		</section>
+
+		<section class="content-section container section-panel" id="examples" aria-labelledby="examples-title">
+			<p class="section-kicker">See the concept in action</p>
+			<h2 id="examples-title">Examples</h2>
+			<p class="section-description">Compare graph pairs and discover how an identical structure can look different.</p>
+			<div class="preview-grid legacy-examples" style="grid-template-columns: 1fr; gap: 22px;">
+				<article class="preview-card">
+					<span class="card-label">Example 01</span>
+					<h3>Isomorphic Graphs</h3>
+					<svg viewBox="0 0 420 190" width="100%" height="190" aria-label="Two isomorphic graphs with labels and mapping" role="img" style="background:#f8f7f2;border:1px solid #d9e0df;border-radius:10px; margin: 14px 0 8px;">
+						<defs>
+							<style>
+								.text { font: 14px 'DM Sans', sans-serif; fill: #17243a; }
+								.small { font: 12px 'DM Sans', sans-serif; fill: #267c67; }
+								.edge { stroke: #17243a; stroke-width: 2; fill: none; }
+								.node { fill: #17243a; }
+								.node2 { fill: #267c67; }
+							</style>
+						</defs>
+						<line class="edge" x1="35" y1="60" x2="125" y2="60"/>
+						<line class="edge" x1="125" y1="60" x2="175" y2="115"/>
+						<line class="edge" x1="175" y1="115" x2="35" y2="115"/>
+						<line class="edge" x1="35" y1="115" x2="35" y2="60"/>
+						<circle class="node" cx="35" cy="60" r="19"/>
+						<circle class="node" cx="125" cy="60" r="19"/>
+						<circle class="node" cx="175" cy="115" r="19"/>
+						<circle class="node" cx="35" cy="115" r="19"/>
+						<text class="text" x="35" y="66" text-anchor="middle">A</text>
+						<text class="text" x="125" y="66" text-anchor="middle">B</text>
+						<text class="text" x="175" y="121" text-anchor="middle">C</text>
+						<text class="text" x="35" y="121" text-anchor="middle">D</text>
+						<line class="edge" x1="270" y1="60" x2="320" y2="60"/>
+						<line class="edge" x1="320" y1="60" x2="360" y2="115"/>
+						<line class="edge" x1="360" y1="115" x2="270" y2="115"/>
+						<line class="edge" x1="270" y1="115" x2="270" y2="60"/>
+						<circle class="node2" cx="270" cy="60" r="19"/>
+						<circle class="node2" cx="320" cy="60" r="19"/>
+						<circle class="node2" cx="360" cy="115" r="19"/>
+						<circle class="node2" cx="270" cy="115" r="19"/>
+						<text class="text" x="270" y="66" text-anchor="middle">1</text>
+						<text class="text" x="320" y="66" text-anchor="middle">2</text>
+						<text class="text" x="360" y="121" text-anchor="middle">3</text>
+						<text class="text" x="270" y="121" text-anchor="middle">4</text>
+						<text class="small" x="105" y="30" text-anchor="middle">Graph G</text>
+						<text class="small" x="315" y="30" text-anchor="middle">Graph H</text>
+					</svg>
+					<p><strong>Vertex mapping:</strong> A → 1, B → 2, C → 3, D → 4.</p>
+					<p>Both graphs have 4 vertices and 4 edges, and each vertex connects to the same pattern of neighbours after relabelling. Because we can match the structure exactly, the graphs are isomorphic.</p>
+				</article>
+				<article class="preview-card">
+					<span class="card-label">Example 02</span>
+					<h3>Non-Isomorphic Graphs</h3>
+					<svg viewBox="0 0 420 190" width="100%" height="190" aria-label="Two non-isomorphic graphs with different structures" role="img" style="background:#f8f7f2;border:1px solid #d9e0df;border-radius:10px; margin: 14px 0 8px;">
+						<defs>
+							<style>
+								.text { font: 14px 'DM Sans', sans-serif; fill: #17243a; }
+								.small { font: 12px 'DM Sans', sans-serif; fill: #267c67; }
+								.edge { stroke: #17243a; stroke-width: 2; fill: none; }
+								.node { fill: #17243a; }
+								.node2 { fill: #267c67; }
+							</style>
+						</defs>
+						<line class="edge" x1="30" y1="60" x2="110" y2="60"/>
+						<line class="edge" x1="110" y1="60" x2="180" y2="115"/>
+						<line class="edge" x1="180" y1="115" x2="30" y2="115"/>
+						<line class="edge" x1="30" y1="115" x2="30" y2="60"/>
+						<circle class="node" cx="30" cy="60" r="19"/>
+						<circle class="node" cx="110" cy="60" r="19"/>
+						<circle class="node" cx="180" cy="115" r="19"/>
+						<circle class="node" cx="30" cy="115" r="19"/>
+						<text class="text" x="30" y="66" text-anchor="middle">A</text>
+						<text class="text" x="110" y="66" text-anchor="middle">B</text>
+						<text class="text" x="180" y="121" text-anchor="middle">C</text>
+						<text class="text" x="30" y="121" text-anchor="middle">D</text>
+						<line class="edge" x1="280" y1="60" x2="350" y2="60"/>
+						<line class="edge" x1="350" y1="60" x2="350" y2="118"/>
+						<line class="edge" x1="350" y1="118" x2="282" y2="118"/>
+						<line class="edge" x1="282" y1="118" x2="280" y2="60"/>
+						<line class="edge" x1="280" y1="60" x2="280" y2="118"/>
+						<circle class="node2" cx="280" cy="60" r="19"/>
+						<circle class="node2" cx="350" cy="60" r="19"/>
+						<circle class="node2" cx="350" cy="118" r="19"/>
+						<circle class="node2" cx="280" cy="118" r="19"/>
+						<text class="text" x="280" y="66" text-anchor="middle">1</text>
+						<text class="text" x="350" y="66" text-anchor="middle">2</text>
+						<text class="text" x="350" y="124" text-anchor="middle">3</text>
+						<text class="text" x="280" y="124" text-anchor="middle">4</text>
+						<text class="small" x="105" y="30" text-anchor="middle">Graph G</text>
+						<text class="small" x="315" y="30" text-anchor="middle">Graph H</text>
+					</svg>
+					<p>These two graphs both have 4 vertices, but their connection patterns are not the same.</p>
+					<p>In Graph G, one vertex is connected to two others in a different way than in Graph H. No relabelling can make the edge connections match exactly, so they are not isomorphic.</p>
+				</article>
+				<article class="preview-card">
+					<span class="card-label">Example 03</span>
+					<h3>Same Number of Vertices and Edges, But Non-Isomorphic</h3>
+					<svg viewBox="0 0 420 190" width="100%" height="190" aria-label="Two graphs with same number of vertices and edges but different connection patterns" role="img" style="background:#f8f7f2;border:1px solid #d9e0df;border-radius:10px; margin: 14px 0 8px;">
+						<defs>
+							<style>
+								.text { font: 14px 'DM Sans', sans-serif; fill: #17243a; }
+								.small { font: 12px 'DM Sans', sans-serif; fill: #267c67; }
+								.edge { stroke: #17243a; stroke-width: 2; fill: none; }
+								.node { fill: #17243a; }
+								.node2 { fill: #267c67; }
+							</style>
+						</defs>
+						<line class="edge" x1="30" y1="55" x2="110" y2="55"/>
+						<line class="edge" x1="110" y1="55" x2="180" y2="100"/>
+						<line class="edge" x1="180" y1="100" x2="110" y2="145"/>
+						<line class="edge" x1="110" y1="145" x2="30" y2="145"/>
+						<line class="edge" x1="30" y1="145" x2="30" y2="55"/>
+						<circle class="node" cx="30" cy="55" r="19"/>
+						<circle class="node" cx="110" cy="55" r="19"/>
+						<circle class="node" cx="180" cy="100" r="19"/>
+						<circle class="node" cx="110" cy="145" r="19"/>
+						<circle class="node" cx="30" cy="145" r="19"/>
+						<text class="text" x="30" y="61" text-anchor="middle">A</text>
+						<text class="text" x="110" y="61" text-anchor="middle">B</text>
+						<text class="text" x="180" y="106" text-anchor="middle">C</text>
+						<text class="text" x="110" y="151" text-anchor="middle">D</text>
+						<text class="text" x="30" y="151" text-anchor="middle">E</text>
+						<line class="edge" x1="290" y1="55" x2="350" y2="55"/>
+						<line class="edge" x1="350" y1="55" x2="350" y2="145"/>
+						<line class="edge" x1="350" y1="145" x2="290" y2="145"/>
+						<line class="edge" x1="290" y1="145" x2="290" y2="55"/>
+						<line class="edge" x1="290" y1="100" x2="350" y2="100"/>
+						<circle class="node2" cx="290" cy="55" r="19"/>
+						<circle class="node2" cx="350" cy="55" r="19"/>
+						<circle class="node2" cx="350" cy="145" r="19"/>
+						<circle class="node2" cx="290" cy="145" r="19"/>
+						<circle class="node2" cx="290" cy="100" r="19"/>
+						<text class="text" x="290" y="61" text-anchor="middle">1</text>
+						<text class="text" x="350" y="61" text-anchor="middle">2</text>
+						<text class="text" x="350" y="151" text-anchor="middle">3</text>
+						<text class="text" x="290" y="151" text-anchor="middle">4</text>
+						<text class="text" x="290" y="106" text-anchor="middle">5</text>
+						<text class="small" x="105" y="30" text-anchor="middle">Graph G</text>
+						<text class="small" x="315" y="30" text-anchor="middle">Graph H</text>
+					</svg>
+					<p>Both graphs have 5 vertices and 5 edges, but the pattern of connections is different.</p>
+					<p>In Graph G, the shape is a cycle with one extra connection, while in Graph H, the edges form a different arrangement. Since the connectivity differs, there is no valid one-to-one mapping that preserves all adjacencies, so they are not isomorphic.</p>
+				</article>
+			</div>
+			<div class="examples-grid">
+				<article class="example-card">
+					<span class="card-label">Example 01 · Start here</span>
+					<h3>A simple isomorphic pair</h3>
+					<div class="example-graphs">
+						<div class="example-graph-panel"><span>Graph A</span><svg class="teaching-graph" viewBox="0 0 260 130" role="img" aria-label="Graph A is a path: A1 connected to A2 connected to A3"><line class="graph-edge" x1="55" y1="66" x2="130" y2="66"/><line class="graph-edge" x1="130" y1="66" x2="205" y2="66"/><g class="graph-vertex" data-vertex="a1"><circle cx="55" cy="66" r="21"/><text x="55" y="70">A1</text></g><g class="graph-vertex" data-vertex="a2"><circle cx="130" cy="66" r="21"/><text x="130" y="70">A2</text></g><g class="graph-vertex" data-vertex="a3"><circle cx="205" cy="66" r="21"/><text x="205" y="70">A3</text></g></svg></div>
+						<div class="example-graph-panel"><span>Graph B</span><svg class="teaching-graph" viewBox="0 0 260 130" role="img" aria-label="Graph B is the same path: B1 connected to B2 connected to B3"><line class="graph-edge" x1="55" y1="66" x2="130" y2="66"/><line class="graph-edge" x1="130" y1="66" x2="205" y2="66"/><g class="graph-vertex" data-vertex="b1"><circle cx="55" cy="66" r="21"/><text x="55" y="70">B1</text></g><g class="graph-vertex" data-vertex="b2"><circle cx="130" cy="66" r="21"/><text x="130" y="70">B2</text></g><g class="graph-vertex" data-vertex="b3"><circle cx="205" cy="66" r="21"/><text x="205" y="70">B3</text></g></svg></div>
+					</div>
+					<p class="notice-line"><strong>What do we notice?</strong> The vertex names are different, but the connections are exactly the same.</p>
+					<div class="mapping-controls"><button class="mapping-button" type="button" data-map-action="show">▶ Show Mapping</button><button class="mapping-button secondary" type="button" data-map-action="replay">Replay</button><button class="mapping-button secondary" type="button" data-map-action="pause" aria-pressed="false">Pause</button></div>
+					<div class="mapping-output" aria-live="polite">
+						<strong class="mapping-label">Mapping:</strong>
+						<div class="mapping-row" data-pair="0"><span>A1</span><b>→</b><span>B1</span></div>
+						<div class="mapping-row" data-pair="1"><span>A2</span><b>→</b><span>B2</span></div>
+						<div class="mapping-row" data-pair="2"><span>A3</span><b>→</b><span>B3</span></div>
+					</div>
+					<p class="example-outcome mapping-result" aria-live="polite">✓ Same connections → Isomorphic</p>
+				</article>
+
+				<article class="example-card">
+					<span class="card-label">Example 02 · Same structure</span>
+					<h3>Same structure, different shape</h3>
+					<div class="example-graphs">
+						<div class="example-graph-panel"><span>Graph A</span><svg class="teaching-graph" viewBox="0 0 260 160" role="img" aria-label="Graph A is a square cycle with four vertices"><line class="graph-edge" x1="65" y1="42" x2="195" y2="42"/><line class="graph-edge" x1="195" y1="42" x2="195" y2="118"/><line class="graph-edge" x1="195" y1="118" x2="65" y2="118"/><line class="graph-edge" x1="65" y1="118" x2="65" y2="42"/><g class="graph-vertex" data-vertex="a1"><circle cx="65" cy="42" r="21"/><text x="65" y="46">A1</text></g><g class="graph-vertex" data-vertex="a2"><circle cx="195" cy="42" r="21"/><text x="195" y="46">A2</text></g><g class="graph-vertex" data-vertex="a3"><circle cx="195" cy="118" r="21"/><text x="195" y="122">A3</text></g><g class="graph-vertex" data-vertex="a4"><circle cx="65" cy="118" r="21"/><text x="65" y="122">A4</text></g></svg></div>
+						<div class="example-graph-panel"><span>Graph B</span><svg class="teaching-graph" viewBox="0 0 260 160" role="img" aria-label="Graph B is the same four-vertex cycle drawn as a tilted diamond"><line class="graph-edge" x1="130" y1="28" x2="218" y2="78"/><line class="graph-edge" x1="218" y1="78" x2="130" y2="132"/><line class="graph-edge" x1="130" y1="132" x2="42" y2="78"/><line class="graph-edge" x1="42" y1="78" x2="130" y2="28"/><g class="graph-vertex" data-vertex="b1"><circle cx="130" cy="28" r="21"/><text x="130" y="32">B1</text></g><g class="graph-vertex" data-vertex="b2"><circle cx="218" cy="78" r="21"/><text x="218" y="82">B2</text></g><g class="graph-vertex" data-vertex="b3"><circle cx="130" cy="132" r="21"/><text x="130" y="136">B3</text></g><g class="graph-vertex" data-vertex="b4"><circle cx="42" cy="78" r="21"/><text x="42" y="82">B4</text></g></svg></div>
+					</div>
+					<p class="notice-line"><strong>What do we notice?</strong> Graphs can look different because their vertices are placed differently. What matters is the connection between the vertices.</p>
+					<div class="mapping-controls"><button class="mapping-button" type="button" data-map-action="show">▶ Show Mapping</button><button class="mapping-button secondary" type="button" data-map-action="replay">Replay</button><button class="mapping-button secondary" type="button" data-map-action="pause" aria-pressed="false">Pause</button></div>
+					<div class="mapping-output" aria-live="polite">
+						<strong class="mapping-label">Mapping:</strong>
+						<div class="mapping-row" data-pair="0"><span>A1</span><b>→</b><span>B1</span></div>
+						<div class="mapping-row" data-pair="1"><span>A2</span><b>→</b><span>B2</span></div>
+						<div class="mapping-row" data-pair="2"><span>A3</span><b>→</b><span>B3</span></div>
+						<div class="mapping-row" data-pair="3"><span>A4</span><b>→</b><span>B4</span></div>
+					</div>
+					<p class="example-outcome mapping-result" aria-live="polite">Different shape ≠ Different structure<br><strong>✓ Isomorphic</strong></p>
+				</article>
+
+				<article class="example-card">
+					<span class="card-label">Example 03 · Degree test</span>
+					<h3>Not isomorphic: a degree mismatch</h3>
+					<div class="example-graphs">
+						<div class="example-graph-panel"><span>Graph A · Star</span><svg class="teaching-graph" viewBox="0 0 260 170" role="img" aria-label="Graph A is a star with A1 of degree 3 and three leaves"><line class="graph-edge" x1="130" y1="80" x2="60" y2="35"/><line class="graph-edge" x1="130" y1="80" x2="200" y2="35"/><line class="graph-edge" x1="130" y1="80" x2="130" y2="145"/><g class="graph-vertex" data-vertex="star-center"><circle cx="130" cy="80" r="23"/><text x="130" y="84">A1</text></g><g class="graph-vertex"><circle cx="60" cy="35" r="21"/><text x="60" y="39">A2</text></g><g class="graph-vertex"><circle cx="200" cy="35" r="21"/><text x="200" y="39">A3</text></g><g class="graph-vertex"><circle cx="130" cy="145" r="21"/><text x="130" y="149">A4</text></g></svg></div>
+						<div class="example-graph-panel"><span>Graph B · Path</span><svg class="teaching-graph" viewBox="0 0 260 170" role="img" aria-label="Graph B is a path with degrees 1, 2, 2, and 1"><line class="graph-edge" x1="45" y1="85" x2="102" y2="85"/><line class="graph-edge" x1="102" y1="85" x2="158" y2="85"/><line class="graph-edge" x1="158" y1="85" x2="215" y2="85"/><g class="graph-vertex"><circle cx="45" cy="85" r="21"/><text x="45" y="89">B1</text></g><g class="graph-vertex"><circle cx="102" cy="85" r="21"/><text x="102" y="89">B2</text></g><g class="graph-vertex"><circle cx="158" cy="85" r="21"/><text x="158" y="89">B3</text></g><g class="graph-vertex"><circle cx="215" cy="85" r="21"/><text x="215" y="89">B4</text></g></svg></div>
+					</div>
+					<div class="example-action-row"><button class="mapping-button" type="button" data-degree-action>Why Not?</button><p class="interactive-explanation" aria-live="polite">Compare the degrees: Graph A has a vertex of degree 3, while Graph B does not.</p></div>
+					<p class="example-outcome">✗ No valid mapping → Non-Isomorphic</p>
+				</article>
+
+				<article class="example-card">
+					<span class="card-label">Example 04 · Look closer</span>
+					<h3>Same degree pattern, different connections</h3>
+					<div class="example-graphs">
+						<div class="example-graph-panel"><span>Graph A · One 6-cycle</span><svg class="teaching-graph" viewBox="0 0 260 190" role="img" aria-label="Graph A is a single cycle of six vertices, all degree 2"><line class="graph-edge" x1="75" y1="35" x2="185" y2="35"/><line class="graph-edge" x1="185" y1="35" x2="220" y2="95"/><line class="graph-edge difference-edge" x1="220" y1="95" x2="185" y2="155"/><line class="graph-edge" x1="185" y1="155" x2="75" y2="155"/><line class="graph-edge" x1="75" y1="155" x2="40" y2="95"/><line class="graph-edge difference-edge" x1="40" y1="95" x2="75" y2="35"/><g class="graph-vertex"><circle cx="75" cy="35" r="20"/><text x="75" y="39">A1</text></g><g class="graph-vertex"><circle cx="185" cy="35" r="20"/><text x="185" y="39">A2</text></g><g class="graph-vertex"><circle cx="220" cy="95" r="20"/><text x="220" y="99">A3</text></g><g class="graph-vertex"><circle cx="185" cy="155" r="20"/><text x="185" y="159">A4</text></g><g class="graph-vertex"><circle cx="75" cy="155" r="20"/><text x="75" y="159">A5</text></g><g class="graph-vertex"><circle cx="40" cy="95" r="20"/><text x="40" y="99">A6</text></g></svg></div>
+						<div class="example-graph-panel"><span>Graph B · Two separate triangles</span><svg class="teaching-graph" viewBox="0 0 260 190" role="img" aria-label="Graph B is two separate triangles; all six vertices have degree 2"><line class="graph-edge" x1="60" y1="45" x2="115" y2="45"/><line class="graph-edge" x1="115" y1="45" x2="87" y2="92"/><line class="graph-edge" x1="87" y1="92" x2="60" y2="45"/><line class="graph-edge" x1="145" y1="98" x2="200" y2="98"/><line class="graph-edge" x1="200" y1="98" x2="172" y2="145"/><line class="graph-edge" x1="172" y1="145" x2="145" y2="98"/><line class="graph-edge missing-edge" x1="87" y1="92" x2="145" y2="98"/><line class="graph-edge missing-edge" x1="172" y1="145" x2="60" y2="45"/><g class="graph-vertex"><circle cx="60" cy="45" r="20"/><text x="60" y="49">B1</text></g><g class="graph-vertex"><circle cx="115" cy="45" r="20"/><text x="115" y="49">B2</text></g><g class="graph-vertex"><circle cx="87" cy="92" r="20"/><text x="87" y="96">B3</text></g><g class="graph-vertex"><circle cx="145" cy="98" r="20"/><text x="145" y="102">B4</text></g><g class="graph-vertex"><circle cx="200" cy="98" r="20"/><text x="200" y="102">B5</text></g><g class="graph-vertex"><circle cx="172" cy="145" r="20"/><text x="172" y="149">B6</text></g></svg></div>
+					</div>
+					<p class="notice-line"><strong>What do we notice?</strong> Both graphs have 6 vertices, 6 edges, and degree sequence 2, 2, 2, 2, 2, 2. But A is connected as one cycle; B splits into two triangles.</p>
+					<div class="example-action-row"><button class="mapping-button" type="button" data-difference-action>Show the difference</button><p class="interactive-explanation" aria-live="polite">The red dashed lines show connections that would be needed between Graph B's separate components.</p></div>
+					<p class="example-outcome">Same degrees + Different connections → Non-Isomorphic</p>
+				</article>
+			</div>
+		</section>
+
+		<section class="section-band section-panel" id="activity" aria-labelledby="activity-title">
+			<div class="container section-grid">
+				<div class="section-number">03</div>
+				<div>
+					<p class="section-kicker">Learn by doing</p>
+					<h2 id="activity-title">Experiment / Activity</h2>
+					<p class="section-description">Follow a guided activity to test your understanding step by step.</p>
+				</div>
+				<div class="section-placeholder">Try it<br><span>Isomorphism quiz</span></div>
+			</div>
+			<div class="container" style="margin-top: 32px;">
+				<div class="preview-card" id="activity-card" style="max-width: 980px; margin: 0 auto;">
+					<span class="card-label">Interactive</span>
+					<h3 style="margin-top: 12px;">Are These Graphs Isomorphic?</h3>
+					<p id="activity-question" style="margin-bottom: 20px;">Choose the correct answer based on the graph structure.</p>
+					<p id="activity-progress" class="activity-progress" aria-live="polite">Question 1 of 6</p>
+					<div id="activity-graphs" style="display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 18px;"></div>
+					<div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px;">
+						<button id="answer-isomorphic" type="button" class="primary-button" style="padding: 10px 20px; border: none; cursor: pointer;">Isomorphic</button>
+						<button id="answer-not-isomorphic" type="button" class="primary-button" style="padding: 10px 20px; border: none; cursor: pointer; background: var(--ink);">Not Isomorphic</button>
+					</div>
+					<div id="activity-feedback" class="activity-feedback" aria-live="polite"></div>
+					<div style="margin-top: 18px;">
+						<button id="try-another" type="button" class="primary-button" style="padding: 10px 18px; border: none; cursor: pointer; display: none;">Try Another</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="content-section container section-panel" id="tool" aria-labelledby="tool-title">
+			<p class="section-kicker">Explore interactively</p>
+			<h2 id="tool-title">Interactive Tool</h2>
+			<p class="section-description">Build two graphs and test whether they have the same structure.</p>
+			<div class="tool-card">
+				<div class="tool-header-row">
+					<label class="tool-select-wrap" for="tool-example-select">
+						<span>Example</span>
+						<select id="tool-example-select">
+							<option value="cycle-matching">Cycle match</option>
+							<option value="path-vs-cycle">Path vs cycle</option>
+							<option value="same-size-not-iso">Same size, not isomorphic</option>
+							<option value="triangle-vs-star">Triangle vs star</option>
+						</select>
+					</label>
+					<button id="tool-load-example" type="button" class="primary-button tool-inline-button">Load Example</button>
+				</div>
+				<div class="tool-mode-bar">
+					<div class="tool-graph-switcher" aria-label="Choose graph to edit">
+						<button type="button" class="tool-graph-button active" data-graph="A">Graph A</button>
+						<button type="button" class="tool-graph-button" data-graph="B">Graph B</button>
+					</div>
+					<div class="tool-action-buttons">
+						<button type="button" class="tool-action-button" data-action="add-vertex">Add Vertex</button>
+						<button type="button" class="tool-action-button" data-action="remove-vertex">Remove Vertex</button>
+						<button type="button" class="tool-action-button" data-action="add-edge">Add Edge</button>
+						<button type="button" class="tool-action-button" data-action="remove-edge">Remove Edge</button>
+						<button type="button" class="tool-action-button danger" data-action="clear-graph">Clear Graph</button>
+					</div>
+				</div>
+				<div class="tool-graph-area">
+					<div class="tool-graph-panel">
+						<div class="graph-panel-label">Graph A</div>
+						<svg id="graph-a-svg" class="tool-svg" viewBox="0 0 300 220" role="img" aria-label="Graph A"></svg>
+					</div>
+					<div class="tool-graph-panel">
+						<div class="graph-panel-label">Graph B</div>
+						<svg id="graph-b-svg" class="tool-svg" viewBox="0 0 300 220" role="img" aria-label="Graph B"></svg>
+					</div>
+				</div>
+				<div class="tool-result" id="tool-result">
+					<p>Choose a predefined example or build your own graphs, then check whether they are isomorphic.</p>
+				</div>
+				<div class="tool-check-row">
+					<button id="check-isomorphism" type="button" class="primary-button tool-check-button">Check Isomorphism</button>
+				</div>
+			</div>
+		</section>
+
+		<section class="section-band section-panel" id="exercises" aria-labelledby="exercises-title">
+			<div class="container section-grid">
+				<div class="section-number">05</div>
+				<div>
+					<p class="section-kicker">Check your understanding</p>
+					<h2 id="exercises-title">Exercise Problems</h2>
+					<p class="section-description">Choose a difficulty and work through graph isomorphism questions one at a time.</p>
+				</div>
+				<div class="section-placeholder">Quiz mode<br><span>Easy · Medium · Hard · Challenge Mix</span></div>
+			</div>
+			<div class="container exercise-quiz-wrap">
+				<div class="quiz-shell" aria-live="polite">
+					<div id="difficulty-screen" class="quiz-screen active">
+						<h3>Choose Difficulty</h3>
+						<div class="quiz-difficulty-grid">
+							<button type="button" class="difficulty-button" data-difficulty="easy">Easy</button>
+							<button type="button" class="difficulty-button" data-difficulty="medium">Medium</button>
+							<button type="button" class="difficulty-button" data-difficulty="hard">Hard</button>
+							<button type="button" class="difficulty-button" data-difficulty="quiz">Challenge Mix</button>
+						</div>
+					</div>
+
+					<div id="question-screen" class="quiz-screen">
+						<div class="quiz-header">
+							<span id="quiz-difficulty-label">Easy</span>
+							<span id="quiz-progress">Question 1 of 1</span>
+						</div>
+						<h3 id="quiz-question-text">Question text</h3>
+						<div id="quiz-visual" class="quiz-visual"></div>
+						<div id="quiz-options" class="quiz-options"></div>
+					</div>
+
+					<div id="finish-screen" class="quiz-screen">
+						<span class="quiz-finish-mark">✓</span>
+						<h3>Test Complete</h3>
+						<p>All questions have been answered. Submit your test to see your score and review.</p>
+						<button id="submit-test-button" type="button" class="primary-button">Submit Test <span aria-hidden="true">↗</span></button>
+					</div>
+
+					<div id="result-screen" class="quiz-screen">
+						<div class="result-heading">
+							<div>
+								<span class="section-kicker">Your results</span>
+								<h3>Review Your Answers</h3>
+							</div>
+							<strong id="quiz-score-text">Score: 0/0</strong>
+						</div>
+						<div class="quiz-result-summary" aria-live="polite">
+							<span>Correct: <strong id="quiz-correct-count">0</strong></span>
+							<span>Incorrect: <strong id="quiz-incorrect-count">0</strong></span>
+						</div>
+						<div id="quiz-review" class="quiz-review"></div>
+						<button id="restart-quiz-button" type="button" class="primary-button">Try Again <span aria-hidden="true">↻</span></button>
+					</div>
+
+					<div id="review-detail-screen" class="quiz-screen">
+						<div class="review-detail-header">
+							<button id="back-to-results-button" class="review-nav-button" type="button">← Back to Results</button>
+							<strong id="review-detail-progress">Question 1 of 1</strong>
+						</div>
+						<div id="review-detail-content" class="review-detail-content"></div>
+						<div class="review-detail-navigation">
+							<button id="previous-review-button" class="review-nav-button" type="button">← Previous Question</button>
+							<button id="review-list-button" class="review-nav-button" type="button">Back to Results</button>
+							<button id="next-review-button" class="review-nav-button" type="button">Next Question →</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container footer-content">
+			<span>Graph Isomorphism Checker</span>
+			<span>DMS Project · Learning through structure</span>
+		</div>
+	</footer>
+
+	<script src="script.js"></script>
+</body>
+</html>
